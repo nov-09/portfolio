@@ -1,111 +1,109 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>이정은 포트폴리오</title>
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      /* 모달 팝업 스타일 추가 (style.css에 넣어도 됩니다) */
-      #modal {
-        display: none;
-        position: fixed;
-        z-index: 1500;
-        left: 0; top: 0;
-        width: 100%; height: 100%;
-        background-color: rgba(0,0,0,0.8);
-        overflow: auto;
-        padding-top: 60px;
-      }
-      #modal img {
-        display: block;
-        margin: auto;
-        max-width: 90%;
-        max-height: 80vh;
-        border-radius: 8px;
-        box-shadow: 0 0 15px #000;
-      }
-      #modal-close {
-        position: absolute;
-        top: 15px;
-        right: 30px;
-        font-size: 40px;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-        transition: color 0.3s ease;
-      }
-      #modal-close:hover {
-        color: #bbb;
-      }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>이정은 포트폴리오</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  /* 모달 팝업 스타일 */
+  #modal {
+    display: none;
+    position: fixed;
+    z-index: 1500;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    overflow: auto;
+    padding-top: 60px;
+  }
+  #modal img {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #000;
+  }
+  #modal-close {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  #modal-close:hover {
+    color: #bbb;
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>PORTFOLIO</h1>
-        <nav>
-            <a href="#about">INTRO</a>
-            <a href="#work">WORKS</a>
-            <a href="#contact">CONTACT</a>
-        </nav>
-    </header>
+<header>
+  <h1>PORTFOLIO</h1>
+  <nav>
+    <a href="#about">INTRO</a>
+    <a href="#work">WORKS</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+</header>
 
-    <section id="about">
-        <h2>INTRO</h2>
-        <p>안녕하세요! 저는 창의적인 작업을 좋아하는 디자이너/개발자입니다.</p>
-    </section>
+<section id="about">
+  <h2>INTRO</h2>
+  <p>안녕하세요! 저는 창의적인 작업을 좋아하는 디자이너/개발자입니다.</p>
+</section>
 
-    <section id="work">
-        <h2>WORKS</h2>
-        <div class="gallery">
-            <img src="images/1.jpg" alt="작품 1" class="modal-thumb" />
-            <img src="images/2.jpg" alt="작품 2" class="modal-thumb" />
-            <img src="images/3.jpg" alt="작품 3" class="modal-thumb" />
-            <img src="images/4.jpg" alt="작품 4" class="modal-thumb" />
-            <img src="images/5.jpg" alt="작품 5" class="modal-thumb" />
-        </div>
-    </section>
+<section id="work">
+  <h2>WORKS</h2>
+  <div class="gallery">
+    <img src="images/1.jpg" alt="작품 1" class="modal-thumb" data-large="images/large_1.jpg" />
+    <img src="images/2.jpg" alt="작품 2" class="modal-thumb" data-large="images/large_2.jpg" />
+    <img src="images/3.jpg" alt="작품 3" class="modal-thumb" data-large="images/large_3.jpg" />
+    <img src="images/4.jpg" alt="작품 4" class="modal-thumb" data-large="images/large_4.jpg" />
+    <img src="images/5.jpg" alt="작품 5" class="modal-thumb" data-large="images/large_5.jpg" />
+  </div>
+</section>
 
-    <section id="contact">
-        <h2>CONTACT</h2>
-        <p>Email: example@example.com</p>
-    </section>
+<section id="contact">
+  <h2>CONTACT</h2>
+  <p>Email: example@example.com</p>
+</section>
 
-    <footer>
-        <p>© 2025 이정은 포트폴리오</p>
-    </footer>
+<footer>
+  <p>© 2025 이정은 포트폴리오</p>
+</footer>
 
-    <!-- 모달 팝업 -->
-    <div id="modal">
-        <span id="modal-close">&times;</span>
-        <img id="modal-img" src="" alt="확대한 작품" />
-    </div>
+<!-- 모달 팝업 -->
+<div id="modal">
+  <span id="modal-close">&times;</span>
+  <img id="modal-img" src="" alt="확대한 작품" />
+</div>
 
-    <script>
-      // 모달 팝업 기능 JS
-      const modal = document.getElementById('modal');
-      const modalImg = document.getElementById('modal-img');
-      const modalClose = document.getElementById('modal-close');
-      const thumbnails = document.querySelectorAll('.modal-thumb');
+<script>
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalClose = document.getElementById('modal-close');
+  const thumbnails = document.querySelectorAll('.modal-thumb');
 
-      thumbnails.forEach(img => {
-        img.addEventListener('click', () => {
-          modal.style.display = 'block';
-          modalImg.src = img.src;
-          modalImg.alt = img.alt;
-        });
-      });
+  thumbnails.forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'block';
+      modalImg.src = img.dataset.large;
+      modalImg.alt = img.alt;
+    });
+  });
 
-      modalClose.onclick = () => {
-        modal.style.display = 'none';
-      };
+  modalClose.onclick = () => {
+    modal.style.display = 'none';
+  };
 
-      // 모달 바깥 클릭 시 닫기
-      window.addEventListener('click', e => {
-        if (e.target === modal) {
-          modal.style.display = 'none';
-        }
-      });
-    </script>
+  window.addEventListener('click', e => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+</script>
 </body>
 </html>
