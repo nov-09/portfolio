@@ -1,49 +1,73 @@
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #ffffff;
-    color: #333;
+  font-family: 'Noto Sans KR', sans-serif, Arial, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #111;
+  line-height: 1.6;
 }
 
 header {
-    background: #000;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-header nav a {
-    color: #fff;
-    margin: 0 10px;
-    text-decoration: none;
+header h1 {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #111;
 }
 
-header nav a:hover {
-    text-decoration: underline;
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #0070f3;
 }
 
 section {
-    padding: 2rem;
-    max-width: 800px;
-    margin: auto;
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 20px;
 }
 
 .gallery {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 15px;
 }
 
 .gallery img {
-    width: 100%;
-    max-width: 250px;
-    border-radius: 8px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-footer {
-    background: #000;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* 반응형 */
+@media(max-width: 600px) {
+  header {
+    flex-direction: column;
+  }
+  nav a {
+    margin: 10px 0;
+  }
+  .gallery {
+    grid-template-columns: 1fr;
+  }
 }
